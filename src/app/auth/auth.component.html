@@ -1,0 +1,22 @@
+<p>auth works! {{signined}} </p>
+
+
+<button *ngIf="!signined" (click)="handleAuthClick($event)">Authorize</button>
+<button *ngIf="signined" (click)="showFiles()" >list Files</button>
+<button *ngIf="signined">Sign Out</button>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>The table header</th>
+      <th>Watch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of files">
+      <td>{{ JSON.stringify(f) }}</td>
+      <td> <button >Open</button> </td>
+    </tr>
+  </tbody>
+</table>
