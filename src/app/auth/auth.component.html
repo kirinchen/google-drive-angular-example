@@ -3,6 +3,15 @@
 
 <button *ngIf="!signined" (click)="handleAuthClick($event)">Authorize</button>
 <button *ngIf="signined" (click)="showFiles()">list Files</button>
+
+<mat-form-field appearance="fill">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option value="application/json">application/json</mat-option>
+    <mat-option value="text/plain">text/plain</mat-option>
+  </mat-select>
+</mat-form-field>
+
 <button *ngIf="signined" (click)="handleSignoutClick($event)">Sign Out</button>
 
 <br />
@@ -24,8 +33,7 @@
     <tr *ngFor="let f of files">
       <td>{{ JSON.stringify(f) }}</td>
       <td>
-        <button  (click)="openContent(f,'media')">Open </button>
-        <button *ngFor="let exp of listExports(f.exportLinks)" (click)="openContent(f,exp)">Open ( {{exp}} ) </button>
+        <button  (click)="openContent(f)">Open </button>
       </td>
     </tr>
   </tbody>

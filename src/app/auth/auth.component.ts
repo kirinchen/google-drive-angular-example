@@ -16,6 +16,7 @@ export class AuthComponent implements OnInit {
   public files = new Array<any>();
   public showContented = false;
   public fileConent = '';
+  public selected = 'application/json';
 
   constructor(
     private jsLoader: JsLoaderService
@@ -46,8 +47,10 @@ export class AuthComponent implements OnInit {
 
   public async fetchFiles(): Promise<any> {
     const response = await gapi.client.drive.files.list({
-      pageSize: 10,
-      fields: 'nextPageToken, files(id,name,exportLinks)'
+      pageSize: 100,
+      q: `mimeType='${this.selected}'`,
+      // q: '	name = \'package.json\'',
+      fields: 'nextPageToken, files(id,name,mimeType,webContentLink)'
     });
     return response.result;
   }
@@ -107,21 +110,18 @@ export class AuthComponent implements OnInit {
     gapi.auth2.getAuthInstance().signIn();
   }
 
-  public async openContent(fm: any, k: string): Promise<void> {
-    const ct = await this.downloadFile(fm.id,k);
+  public async openContent(fm: any): Promise<void> {
+    const ct = await this.downloadFile(fm.id);
     this.fileConent = JSON.stringify(ct);
     this.showContented = true;
   }
 
-  public listExports(expLinks: object): Array<string> {
-    if (!expLinks) { return []; }
-    return Object.keys(expLinks);
-  }
 
-  public async downloadFile(fileId: string, k: string): Promise<any> {
-    return gapi.client.drive.files.export({
+
+  public async downloadFile(fileId: string): Promise<any> {
+    return gapi.client.drive.files.get({
       fileId,
-      mimeType: k
+      alt: 'media'
     });
   }
 
