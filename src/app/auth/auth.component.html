@@ -2,11 +2,18 @@
 
 
 <button *ngIf="!signined" (click)="handleAuthClick($event)">Authorize</button>
-<button *ngIf="signined" (click)="showFiles()" >list Files</button>
-<button *ngIf="signined">Sign Out</button>
+<button *ngIf="signined" (click)="showFiles()">list Files</button>
+<button *ngIf="signined" (click)="handleSignoutClick($event)">Sign Out</button>
 
+<br />
+<div *ngIf="showContented">
+  <button (click)="showContented = false ">Close</button>
+  <textarea id="w3review" name="w3review" rows="50" cols="150">
+    {{ fileConent }}
+  </textarea>
+</div>
 
-<table>
+<table *ngIf="!showContented" >
   <thead>
     <tr>
       <th>The table header</th>
@@ -16,7 +23,10 @@
   <tbody>
     <tr *ngFor="let f of files">
       <td>{{ JSON.stringify(f) }}</td>
-      <td> <button >Open</button> </td>
+      <td>
+        <button  (click)="openContent(f,'media')">Open </button>
+        <button *ngFor="let exp of listExports(f.exportLinks)" (click)="openContent(f,exp)">Open ( {{exp}} ) </button>
+      </td>
     </tr>
   </tbody>
 </table>

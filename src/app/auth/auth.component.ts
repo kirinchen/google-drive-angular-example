@@ -14,6 +14,8 @@ export class AuthComponent implements OnInit {
   public JSON = JSON;
   public signined = false;
   public files = new Array<any>();
+  public showContented = false;
+  public fileConent = '';
 
   constructor(
     private jsLoader: JsLoaderService
@@ -45,7 +47,7 @@ export class AuthComponent implements OnInit {
   public async fetchFiles(): Promise<any> {
     const response = await gapi.client.drive.files.list({
       pageSize: 10,
-      fields: 'nextPageToken, files(id, name)'
+      fields: 'nextPageToken, files(id,name,exportLinks)'
     });
     return response.result;
   }
@@ -77,6 +79,7 @@ export class AuthComponent implements OnInit {
             'https://www.googleapis.com/auth/drive.readonly',
             'https://www.googleapis.com/auth/drive.metadata.readonly',
             'https://www.googleapis.com/auth/drive.appdata',
+            'https://www.googleapis.com/auth/drive.metadata',
             'https://www.googleapis.com/auth/drive.photos.readonly'
           ]
         )
@@ -96,13 +99,31 @@ export class AuthComponent implements OnInit {
     console.log('updateSigninStatus:' + this.signined);
   }
 
-
+  public handleSignoutClick(event) {
+    gapi.auth2.getAuthInstance().signOut();
+  }
 
   public handleAuthClick(event): void {
     gapi.auth2.getAuthInstance().signIn();
-
   }
 
+  public async openContent(fm: any, k: string): Promise<void> {
+    const ct = await this.downloadFile(fm.id,k);
+    this.fileConent = JSON.stringify(ct);
+    this.showContented = true;
+  }
+
+  public listExports(expLinks: object): Array<string> {
+    if (!expLinks) { return []; }
+    return Object.keys(expLinks);
+  }
+
+  public async downloadFile(fileId: string, k: string): Promise<any> {
+    return gapi.client.drive.files.export({
+      fileId,
+      mimeType: k
+    });
+  }
 
 
 }
