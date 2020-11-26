@@ -1,3 +1,38 @@
+# 如何申請Google Drive 開發者金鑰和Oauth
+
+最近本人開始騎單車的爬坡,所以開發了一個爬坡小工具,那就會用到Google Map API,這邊先做個預告,順便寫個Gmap小筆記啦
+
+## 創建API Key
+
+1.先到 Google雲端後台 . https://console.developers.google.com/apis/dashboard
+
+2.請先選擇一個專案 (如果沒有請按建立)
+![accept.jpg](https://github.com/kirinchen/note-annex/blob/master/google-map-key/create-project.jpg?raw=true)
+
+3.啟用API,
+* 資料庫 > 
+* 搜尋 : Google Drive API
+* 啟用  Google Drive API
+4. 先到憑證,並建立API KEY
+![accept.jpg](https://github.com/kirinchen/note-annex/blob/master/google-map-key/certificate.jpg?raw=true)
+![accept.jpg](https://github.com/kirinchen/note-annex/blob/master/google-map-key/certificate2.jpg?raw=true)
+![certificatedone.jpg](https://github.com/kirinchen/note-annex/blob/master/google-map-key/certificatedone.jpg?raw=true)
+
+5.再到 Google雲端後台 . [Google Cloud Platform Console](https://cloud.google.com/console/google/maps-apis/overview) 並選則憑證
+![go-cert-page.jpg](https://github.com/kirinchen/note-annex/blob/master/google-map-key/go-cert-page.jpg?raw=true)
+
+>> 這邊可以看之前申請的Key,也可以複製金鑰
+
+## 建立OAuth 2.0 用戶端 ID
+
+1. 建立OAuth 同意畫面填入基本資料即可
+2. 選擇建立OAuth 2.0 用戶端 ID
+
+
+
+
+
+
 # GoogleDriveNg
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
