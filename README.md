@@ -1,5 +1,6 @@
 # Google Drive API V3 與 Angluar 整合範例
 
+https://github.com/kirinchen/google-drive-angular/blob/master/README.md
 大致的功能如下
 * 登入/登出
 * 顯示列表By File Tyoe
