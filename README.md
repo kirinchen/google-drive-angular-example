@@ -6,9 +6,9 @@
 大致的功能如下
 * 登入/登出
 * 顯示列表By File Tyoe
-![demo-list.jpg]https://github.com/kirinchen/google-drive-angular-example/blob/master/doc/demo-list.jpg?raw=true
+![demo-list.jpg](https://github.com/kirinchen/google-drive-angular-example/blob/master/doc/demo-list.jpg?raw=true)
 * read 檔案內容
-![demo-filebody.jpg]https://github.com/kirinchen/google-drive-angular-example/blob/master/doc/demo-filebody.jpg?raw=true
+![demo-filebody.jpg](https://github.com/kirinchen/google-drive-angular-example/blob/master/doc/demo-filebody.jpg?raw=true)
 
 1. [如何申請Google Drive 開發者金鑰和Oauth](https://github.com/kirinchen/google-drive-angular#%E5%A6%82%E4%BD%95%E7%94%B3%E8%AB%8Bgoogle-drive-%E9%96%8B%E7%99%BC%E8%80%85%E9%87%91%E9%91%B0%E5%92%8Coauth)
 2. [下載專案與專案設定](https://github.com/kirinchen/google-drive-angular#%E4%B8%8B%E8%BC%89%E5%B0%88%E6%A1%88%E8%88%87%E5%B0%88%E6%A1%88%E8%A8%AD%E5%AE%9A)
