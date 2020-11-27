@@ -33,9 +33,20 @@
 
 
 
-# GoogleDriveNg
+# 下載專案與專案設定
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+1. 下載 https://github.com/kirinchen/google-drive-angular.git 
+或者 ```git clone https://github.com/kirinchen/google-drive-angular.git```
+2. cd 到 [root ]] 專案下/
+3. run ``` npm install ```
+4. 修改 [root]/src/environments/environment.ts
+```javascript
+export const environment = {
+  production: false,
+  clientId: '{OAuth 2.0 用戶端 ID}',
+  apiKey: '{API KEY}'
+};
+```
 
 ## Development server
 
