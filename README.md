@@ -16,7 +16,6 @@
 
 ## 如何申請Google Drive 開發者金鑰和Oauth
 
-最近本人開始騎單車的爬坡,所以開發了一個爬坡小工具,那就會用到Google Map API,這邊先做個預告,順便寫個Gmap小筆記啦
 
 ## 創建API Key
 
